@@ -16,6 +16,7 @@ interface StartOptions {
     skipApi: boolean;
     allLocales: boolean;
     pbivizFile: string;
+    verbose: boolean;
 }
 
 interface PackageOptions {
@@ -41,6 +42,7 @@ interface NewOptions {
 export default class CommandManager {
 
     public static async start(options: StartOptions, rootPath: string) {
+
         const webpackOptions: WebpackOptions = {
             devMode: true,
             devtool: "eval-source-map",
@@ -54,6 +56,11 @@ export default class CommandManager {
             allLocales: options.allLocales,
             pbivizFile: options.pbivizFile,
         }
+	if (options.verbose){
+		console.log("verbose")
+	}else{
+		console.log("not verbose")
+	}
         const visualManager = new VisualManager(rootPath);
         await visualManager.prepareVisual(options.pbivizFile);
         await visualManager.validateVisual();

@@ -81,6 +81,7 @@ pbiviz
     .usage('[options]')
     .option('-p, --port [port]', 'Set the port listening on')
     .option('-d, --drop', 'Drop outputs into output folder')
+    .option('-v, --verbose', 'Verbose output')
     .option('--no-stats', "Doesn't generate statistics files")
     .option('--skip-api', "Skips powerbi-visuals-api verifying")
     .option('-l, --all-locales', "Keeps all locale files in the package. By default only used inside stringResources folder locales are included.")
