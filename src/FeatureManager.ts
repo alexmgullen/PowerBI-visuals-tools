@@ -32,6 +32,7 @@ export class FeatureManager {
                 deprecation: []
             }
         }
+
         this.features
             .filter(feature => feature.stage == stage)
             .filter(feature => feature.visualFeatureType & sourceInstance.visualFeatureType)

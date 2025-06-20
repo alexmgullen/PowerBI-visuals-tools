@@ -96,6 +96,7 @@ export default class VisualManager {
     }
     
     public async createVisualInstance() {
+	ConsoleWriter.info("Reading capabilities.json");
         this.capabilities = await readJsonFromVisual("capabilities.json", this.basePath);
         this.visual = new Visual(this.capabilities, this.pbivizConfig);
     }
@@ -127,6 +128,7 @@ export default class VisualManager {
         ConsoleWriter.info('Starting server...');
         try {
             if (generateDropFiles) {
+        	ConsoleWriter.info('Preparing Drop Files');
                 this.prepareDropFiles();
             }
 
