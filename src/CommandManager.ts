@@ -56,15 +56,20 @@ export default class CommandManager {
             allLocales: options.allLocales,
             pbivizFile: options.pbivizFile,
         }
-	if (options.verbose){
-		console.log("verbose")
-	}else{
-		console.log("not verbose")
-	}
+	
+	if (options.verbose) ConsoleWriter.info("Initializing Visual Manager");
         const visualManager = new VisualManager(rootPath);
+
+	if (options.verbose) ConsoleWriter.info("Preparing Visual");
         await visualManager.prepareVisual(options.pbivizFile);
+
+	if (options.verbose) ConsoleWriter.info("Validating Visual");
         await visualManager.validateVisual();
+
+	if (options.verbose) ConsoleWriter.info("Initializing Webpack");
         await visualManager.initializeWebpack(webpackOptions);
+
+	if (options.verbose) ConsoleWriter.info("Starting Server");
         visualManager.startWebpackServer(options.drop);
     }
     
